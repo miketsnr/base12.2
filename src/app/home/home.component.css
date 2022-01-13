@@ -1,0 +1,36 @@
+.overlay{
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(244, 244, 244, 0.79);
+   }
+   .description{
+    position: absolute;
+    top: 30%;
+    margin: auto;
+    padding: 2em;
+    
+}
+.description h1{
+ color:#0d09f8 ;
+ font-style: italic;
+
+ 
+ 
+}
+.description p{
+ margin-top: 30px;
+ color:#666;
+ padding: 15px;
+ font-size: 20px;
+ 
+ line-height: 1.5;
+ background-color: rgb(214, 233, 250);
+}
+.description button{
+ border:1px  solid #F97300;
+ background:#F97300;
+ color:#fff;
+}

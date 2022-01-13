@@ -4,7 +4,7 @@
   <div *ngIf="toggleme" class="bg-light border-right" id="sidebar-wrapper">
     <div (click)="toggler()"  class="sidebar-heading">Main Menu <span class="float-right">  <i class="arrow left"></i> </span> </div>
     <div class="list-group list-group-flush">
-      <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+      <a (click)="open()" class="list-group-item list-group-item-action bg-light">Dashboard</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
