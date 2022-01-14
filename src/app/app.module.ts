@@ -10,14 +10,21 @@ import { ErrorInterceptor, JwtInterceptor } from './_helpers';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuillModule } from 'ngx-quill';
-import { HelpComponent } from './help/help.component'
+import { HelpComponent } from './help/help.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './materialmodule';
+import { QuickjobComponent } from './quickjob/quickjob.component';
+import { SearchpipePipe } from './services/searchpipe.pipe';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     SignupComponent,
+    SearchpipePipe,
     HomeComponent,
+    QuickjobComponent,
     HelpComponent
   ],
   imports: [
@@ -27,7 +34,9 @@ import { HelpComponent } from './help/help.component'
     HttpClientModule,
     ReactiveFormsModule,
     NgbModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -1,0 +1,93 @@
+<form><div class="container" style="width:300px; ">
+  <div class="row" >
+    <table class="table table-sm" style="width:300px; font-size:1.5em;">
+
+    <tbody>
+     <tr>  <td colspan="1">  <mat-form-field appearance="fill" style="width:100%;
+      font-size: .8rem;">
+    <mat-label>Number of Copies</mat-label>
+    <mat-icon  matSuffix>person</mat-icon>
+    <input matInput type="text"
+    [(ngModel)]="copies"  [ngModelOptions]="{standalone: true}"
+    name="copies"
+    required >
+    <!-- <button *ngIf="apiserv.thecall.Name" matSuffix mat-icon-button aria-label="Clear"
+      (click)="apiserv.thecall.Name=''">
+      <mat-icon>close</mat-icon>
+    </button> -->
+  </mat-form-field> <button [disabled]="!(currentjobcard.customernumber && currentjobcard.jobcardno)" class="btn  btn-primary btn-sm ml-4"  (click)="makecopyof(copies)">Go</button></td>
+   <!-- <td>Number of jobcards</td>
+        <td><input type="text" [(ngModel)]="copies"   [ngModelOptions]="{standalone: true}" > -->
+     </tr>
+     <tr> <td class="tdlabel" >Jobno</td><td><input type="text" [(ngModel)]="currentjobcard.jobcardno"   [ngModelOptions]="{standalone: true}" > </td>
+     </tr>
+     <tr> <td  class="tdlabel" >Customer</td> <td (click)="searchcust = true ;"> {{ currentjobcard.customernumber }} <button class="btn btn-sm btn-outline-danger ">Select Customer</button> </td>
+
+      </tr>
+      <tr [hidden]="!searchcust">
+        <td >
+          Type to filter the List </td> <td>
+          <input class="inputfilter" type="text" id="searchbox" [(ngModel)]="searchbox"
+            [ngModelOptions]="{standalone: true}">
+
+          <div class="list-group">
+            <div class="list-group-item" (click)="custchanged(item)"
+              *ngFor=" let item of options | searchpipe: [searchbox, 'description']">
+              {{ item['description'] }} </div>
+          </div>
+        </td>
+      </tr>
+       <tr>  <td  >Priority</td>
+        <td>
+          <mat-radio-group aria-label="Select a Priority">
+          <mat-radio-button value="Normal">Normal </mat-radio-button>
+          <mat-radio-button class="pl-3" value="Urgent">Urgent </mat-radio-button>
+        </mat-radio-group></td>
+  <!-- <td>      Yes  <input id="3" [value]="'Urgent'" type="radio" name="enums_urgent"
+        [(ngModel)]="currentjobcard.priority">
+        No  <input id="4" [value]="'Normal'" type="radio" name="enums_urgent"
+        [(ngModel)]="currentjobcard.priority"> </td> -->
+
+      <!-- <input id="{{item.id}}_4" [value]="'ignore'" type="radio" name="enums_{{item.id}}"
+        [(ngModel)]="item.codeid" (click)="codeChanged(item)">
+    </td>
+          <input type="checkbox"  [(ngModel)] = "currentjobcard.priority" name = "currentjobcard.priority" value="1"> </td> -->
+       </tr>
+       <tr> <td class="tdlabel" >Quote</td>
+        <td>      Yes  <input id="5" [value]="1" type="radio" name="enums_quote"
+          [(ngModel)]="currentjobcard.quoterequest">
+          No  <input id="6" [value]="0" type="radio" name="enums_quote"
+          [(ngModel)]="currentjobcard.quoterequest"> </td>
+        <!-- <td> <input type="checkbox" [(ngModel)]="currentjobcard.quoterequest" name  = "currentjobcard.quoterequest" value="1">  </td> -->
+       </tr>
+       <tr>     <td class="tdlabel" >Order No</td>   <td><input type="text" [(ngModel)]="currentjobcard.ordernumber"  name = "currentjobcard.ordernumber" > </td>
+       </tr>
+
+      <tr>  <td class="tdlabel" >Type</td><td>
+         <select [(ngModel)]="currentjobcard.type" name = "currentjobcard.type"  >
+           <option *ngFor="let mtype of motortypes" >{{ mtype }} </option></select>  </td>
+      </tr>
+       <tr>  <td class="tdlabel" >Volts</td><td><input type="text" [(ngModel)]="currentjobcard.voltage"  name = "currentjobcard.voltage"  /></td>
+       </tr>
+       <tr>   <td class="tdlabel" >Phase</td><td><input type="text" [(ngModel)]="currentjobcard.phases"  name = "currentjobcard.phases" /></td>
+       </tr>
+       <tr>   <td class="tdlabel" >Make</td><td><input type="text" [(ngModel)]="currentjobcard.make"  name = "currentjobcard.make" /></td>
+       </tr>
+       <tr>   <td class="tdlabel" >Size</td><td><input type="text" [(ngModel)]="currentjobcard.hp_kw"  name = "currentjobcard.hp_kw"  /></td>
+       </tr>
+       <tr>  <td class="tdlabel" >Speed</td><td><input type="text" [(ngModel)]="currentjobcard.rpm"  name = "currentjobcard.rpm" /></td>
+       </tr>
+       <tr>  <td class="tdlabel" >Serial No</td> <td><input type="text" [(ngModel)]="currentjobcard.serialno"  name = "currentjobcard.serailno"  /></td>
+       </tr>
+       <tr>     <td class="tdlabel" >Contact</td> <td><input type="text" [(ngModel)]="currentjobcard.contact"  name = "currentjobcard.contact"  > </td>
+       </tr>
+       <tr>     <td class="tdlabel" >Cell no</td>   <td><input type="text" [(ngModel)]="currentjobcard.contacttelno"  name = "currentjobcard.contacttelno" > </td>
+       </tr>
+       <tr>     <td class="tdlabel" >Comment</td>        <td><input type="text" [(ngModel)]="currentjobcard.comment"  name = "currentjobcard.comment"  /></td>
+       </tr>
+
+    </tbody>
+  </table>
+  </div>
+</div>
+</form>

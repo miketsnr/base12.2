@@ -1,0 +1,76 @@
+<form><div class="container"  style="width:320px;">
+  <div class="row" >
+    <table class="table table-sm" style="font-size:1.0em;">
+
+    <tbody>
+     <tr>    <td>Copies</td>
+        <td><input type="text" [(ngModel)]="copies"   [ngModelOptions]="{standalone: true}" ></td>
+      <td>     <button [disabled]="!(currentjobcard.customernumber && currentjobcard.jobcardno)" class="btn  btn-primary btn-sm"  (click)="makecopyof(copies)">Go</button></td>
+     </tr>
+     <tr> <td class="tdlabel" >Jobno</td><td><input type="text" [(ngModel)]="currentjobcard.jobcardno"   [ngModelOptions]="{standalone: true}" > </td>
+     </tr>
+     <tr> <td  class="tdlabel" >Customer</td> <td colspan="2" (click)="searchcust = true ;"> {{ currentjobcard.customernumber }} <button class="btn btn-sm btn-outline-danger ">Select Customer</button> </td>
+
+      </tr>
+      <tr [hidden]="!searchcust">
+        <td >
+          Type to filter the List </td> <td>
+          <input class="inputfilter" type="text" id="searchbox" [(ngModel)]="searchbox"
+            [ngModelOptions]="{standalone: true}">
+
+          <div class="list-group">
+            <div class="list-group-item" (click)="custchanged(item)"
+              *ngFor=" let item of options | searchpipe: [searchbox, 'name']">
+              {{ item['name'] }} </div>
+          </div>
+        </td>
+      </tr>
+       <tr>  <td  >Urgent</td>
+  <td colspan="2" >      Yes  <input id="3" [value]="'Urgent'" type="radio" name="enums_urgent"
+        [(ngModel)]="currentjobcard.priority">
+        No  <input id="3" [value]="'Normal'" type="radio" name="enums_urgent"
+        [(ngModel)]="currentjobcard.priority"> </td>
+
+      <!-- <input id="{{item.id}}_4" [value]="'ignore'" type="radio" name="enums_{{item.id}}"
+        [(ngModel)]="item.codeid" (click)="codeChanged(item)">
+    </td>
+          <input type="checkbox"  [(ngModel)] = "currentjobcard.priority" name = "currentjobcard.priority" value="1"> </td> -->
+       </tr>
+       <tr> <td class="tdlabel" >Quote</td>
+        <td colspan="2" >      Yes  <input id="3" [value]="1" type="radio" name="enums_quote"
+          [(ngModel)]="currentjobcard.quoterequest">
+          No  <input id="3" [value]="0" type="radio" name="enums_quote"
+          [(ngModel)]="currentjobcard.quoterequest"> </td>
+        <!-- <td> <input type="checkbox" [(ngModel)]="currentjobcard.quoterequest" name  = "currentjobcard.quoterequest" value="1">  </td> -->
+       </tr>
+       <tr>     <td class="tdlabel" >Order No</td>   <td  colspan="2" ><input type="text" [(ngModel)]="currentjobcard.ordernumber"  name = "currentjobcard.ordernumber" > </td>
+       </tr>
+
+      <tr>  <td class="tdlabel" >Type</td><td>
+         <select [(ngModel)]="currentjobcard.type" name = "currentjobcard.type"  >
+           <option *ngFor="let mtype of motortypes" >{{ mtype }} </option></select>  </td>
+      </tr>
+       <tr>  <td class="tdlabel" >Volts</td><td  colspan="2" ><input type="text" [(ngModel)]="currentjobcard.voltage"  name = "currentjobcard.voltage"  /></td>
+       </tr>
+       <tr>   <td class="tdlabel" >Phase</td><td  colspan="2" ><input type="text" [(ngModel)]="currentjobcard.phases"  name = "currentjobcard.phases" /></td>
+       </tr>
+       <tr>   <td class="tdlabel" >Make</td><td  colspan="2" ><input type="text" [(ngModel)]="currentjobcard.make"  name = "currentjobcard.make" /></td>
+       </tr>
+       <tr>   <td class="tdlabel" >Size</td><td  colspan="2" ><input type="text" [(ngModel)]="currentjobcard.hp_kw"  name = "currentjobcard.hp_kw"  /></td>
+       </tr>
+       <tr>  <td class="tdlabel" >Speed</td><td  colspan="2" ><input type="text" [(ngModel)]="currentjobcard.rpm"  name = "currentjobcard.rpm" /></td>
+       </tr>
+       <tr>  <td class="tdlabel" >Serial No</td> <td  colspan="2" ><input type="text" [(ngModel)]="currentjobcard.serialno"  name = "currentjobcard.serailno"  /></td>
+       </tr>
+       <tr>     <td class="tdlabel" >Contact</td> <td  colspan="2" ><input type="text" [(ngModel)]="currentjobcard.contact"  name = "currentjobcard.contact"  > </td>
+       </tr>
+       <tr>     <td class="tdlabel" >Cell no</td>   <td  colspan="2" ><input type="text" [(ngModel)]="currentjobcard.contacttelno"  name = "currentjobcard.contacttelno" > </td>
+       </tr>
+       <tr>     <td class="tdlabel" >Comment</td>        <td  colspan="2" ><input type="text" [(ngModel)]="currentjobcard.comment"  name = "currentjobcard.comment"  /></td>
+       </tr>
+
+    </tbody>
+  </table>
+  </div>
+</div>
+</form>
